@@ -7,10 +7,7 @@ exports.config = {
 
     //ignoreSynchronization: true,
 
-    browserName: 'chrome_desktop',
-    chromeOptions: {
-      args: ['--headless', '--disable-gpu', '--window-size=1280,800'],
-      binary: ''
+    browserName: 'chrome_desktop'
     },
     /**
      * If this is set to be true, specs will be sharded by file (i.e. all
