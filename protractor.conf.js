@@ -11,7 +11,7 @@ exports.config = {
 
     chromeOptions: {
        args: [ "--headless", "--disable-gpu", "--window-size=800,600" ],
-       binary: "/var/jenkins_home/workspace/demo/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41"
+       //binary: "/var/jenkins_home/workspace/demo/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41"
      },
 
     /**
