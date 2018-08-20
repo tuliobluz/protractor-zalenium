@@ -4,7 +4,7 @@
   "description": "protractor with cucumber and pageobject",
   "main": "index.js",
   "scripts": {
-    "pree2e": "./node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.29",
+    "pree2e": "./node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.38",
     "test": "protractor protractor.conf.js"
   },
   "repository": {
