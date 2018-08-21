@@ -9,7 +9,7 @@ exports.config = {
 
     browserName: 'chrome',
     chromeOptions: {
-      args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage'],
+      args: ['--headless', '--no-sandbox'],
       binary: './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41'
     },
   },
