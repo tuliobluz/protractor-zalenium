@@ -10,7 +10,7 @@ exports.config = {
     browserName: 'chrome',
     chromeOptions: {
       args: ['--headless', '--no-sandbox', '--disable-dev-shm-usage'],
-      //binary: './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.29'
+      binary: './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.29'
     },
   },
 
@@ -26,6 +26,7 @@ exports.config = {
    * stabilize between tasks.
    */
   allScriptsTimeout: 10000,
+  directConnect:true,
   baseUrl: 'https://angularjs.org',
   /**
     * Test framework to use. This may be one of: jasmine, mocha or custom.
