@@ -26,7 +26,6 @@ exports.config = {
    * stabilize between tasks.
    */
   allScriptsTimeout: 10000,
-  directConnect:true,
   baseUrl: 'https://angularjs.org',
   /**
     * Test framework to use. This may be one of: jasmine, mocha or custom.
