@@ -10,7 +10,7 @@ exports.config = {
     browserName: 'chrome',
     chromeOptions: {
       args: ['--headless', '--disable-gpu', '--window-size=1280,800',  '--disable-dev-shm-usage'],
-      binary: '/var/jenkins_home/workspace/demo/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41'
+      binary: './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41'
     },
   },
 
@@ -20,6 +20,7 @@ exports.config = {
    * Default is false.
    */
   shardTestFiles: true,
+  directConnect: true,
   /**
    * The timeout in milliseconds for each script run on the browser. This
    * should be longer than the maximum time your application needs to
