@@ -13,7 +13,6 @@ exports.config = {
       binary: './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41'
     },
   },
-  seleniumAddress: 'http://localhost:4445/wd/hub',
   /**
    * If this is set to be true, specs will be sharded by file (i.e. all
    * files to be run by this set of capabilities will run in parallel).
