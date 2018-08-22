@@ -9,7 +9,7 @@ exports.config = {
     browserName: 'chrome',
     chromeOptions: {
       args: ['--headless', '--disable-dev-shm-usage'],
-      binary: '/var/jenkins_home/.nvm/versions/node/v9.4.0/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41'
+      binary: './var/jenkins_home/.nvm/versions/node/v9.4.0/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41'
     },
   },
   /**
