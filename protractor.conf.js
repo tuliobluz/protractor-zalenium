@@ -6,7 +6,7 @@ exports.config = {
   capabilities: {
 
     //ignoreSynchronization: true,
-
+    chromeDriver: './node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver',
     browserName: 'chrome',
     chromeOptions: {
       args: ['--headless', '--disable-dev-shm-usage'],
