@@ -1,47 +1,18 @@
-# FROM node:9.4.0
+FROM ubuntu:16.04
 
-# WORKDIR /usr/app/protractor
+RUN mkdir -p /usr/app/protractor
 
-# ADD . .
+WORKDIR /usr/app/protractor
 
-# RUN apt-get update --fix-missing && \
-#    apt-get install -y xvfb wget openjdk-7-jre libgconf-2-4 libexif12 chromium && \
-#    apt-get clean
-
-# RUN node --version
-# RUN npm --version
-
-# RUN npm install
-# RUN npm install -g protractor
-# RUN npm run pree2e
-
-# RUN webdriver-manager start &
-# RUN sleep 10
-
-# RUN npm run test
-
-FROM node:6.9.4-slim
-WORKDIR /tmp
-COPY webdriver-versions.js ./
-ENV CHROME_PACKAGE="google-chrome-stable_59.0.3071.115-1_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
-RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
-    node ./webdriver-versions.js --chromedriver 2.32 && \
-    webdriver-manager update && \
-    echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get install -y xvfb wget sudo && \
-    apt-get install -y -t jessie-backports openjdk-8-jre && \
-    wget https://github.com/webnicer/chrome-downloads/raw/master/x64.deb/${CHROME_PACKAGE} && \
-    dpkg --unpack ${CHROME_PACKAGE} && \
-    apt-get install -f -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* \
-    rm ${CHROME_PACKAGE} && \
-    mkdir /protractor
-COPY protractor.sh /
-COPY environment /etc/sudoers.d/
-# Fix for the issue with Selenium, as described here:
-# https://github.com/SeleniumHQ/docker-selenium/issues/87
-ENV DBUS_SESSION_BUS_ADDRESS=/dev/null SCREEN_RES=1280x1024x24
-WORKDIR /protractor
-ENTRYPOINT ["/protractor.sh"]
+ADD . .
+RUN apt-get update
+RUN apt-get install -y curl wget dpkg
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+RUN apt-get install -y default-jdk
+RUN npm install -g protractor
+RUN npm install
+RUN npm run webdriver-update
+CMD npm run pree2e &&  npm run test

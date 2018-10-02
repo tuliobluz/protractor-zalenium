@@ -6,18 +6,21 @@ exports.config = {
   capabilities: {
 
     //ignoreSynchronization: true,
+
     browserName: 'chrome',
+    /**
+     * If this is set to be true, specs will be sharded by file (i.e. all
+     * files to be run by this set of capabilities will run in parallel).
+     * Default is false.
+     */
     chromeOptions: {
-      args: ['--headless', '--disable-dev-shm-usage'],
-      binary: './var/jenkins_home/.nvm/versions/node/v9.4.0/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.41'
+      args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage'],
+      binary: '/usr/bin/google-chrome'
     },
+
+    shardTestFiles: true
   },
-  /**
-   * If this is set to be true, specs will be sharded by file (i.e. all
-   * files to be run by this set of capabilities will run in parallel).
-   * Default is false.
-   */
-  shardTestFiles: true,
+  directConnect: true,
   /**
    * The timeout in milliseconds for each script run on the browser. This
    * should be longer than the maximum time your application needs to
