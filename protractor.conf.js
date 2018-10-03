@@ -14,7 +14,7 @@ exports.config = {
      * Default is false.
      */
     chromeOptions: {
-      args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage'],
+      args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768']
       binary: '/usr/bin/google-chrome'
     },
 
