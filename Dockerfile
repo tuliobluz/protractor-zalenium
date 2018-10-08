@@ -12,7 +12,6 @@ RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y default-jdk
-RUN npm install -g protractor
 RUN npm install
 RUN npm run webdriver-update
-CMD npm run pree2e &&  npm run test
+CMD npm run e2e

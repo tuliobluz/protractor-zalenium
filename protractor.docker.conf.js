@@ -14,7 +14,7 @@ exports.config = {
      * Default is false.
      */
     chromeOptions: {
-      args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768']
+      args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768'],
       binary: '/usr/bin/google-chrome'
     },
 
@@ -26,7 +26,8 @@ exports.config = {
    * should be longer than the maximum time your application needs to
    * stabilize between tasks.
    */
-  allScriptsTimeout: 10000,
+  allScriptsTimeout: 25000,
+  defaultTimeoutInterval: 30000,
   baseUrl: 'https://angularjs.org',
   /**
     * Test framework to use. This may be one of: jasmine, mocha or custom.

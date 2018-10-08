@@ -5,7 +5,7 @@ let chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 let expect = chai.expect;
 var {setDefaultTimeout} = require('cucumber');
-setDefaultTimeout(60 * 1200);
+setDefaultTimeout(60 * 3000);
 
 Before(function(){
     specPage.init();
