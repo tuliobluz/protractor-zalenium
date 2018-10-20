@@ -4,9 +4,9 @@
   "description": "protractor with cucumber and pageobject",
   "main": "index.js",
   "scripts": {
-		"pree2e": "webdriver-manager start & sleep 5",
-		"webdriver-update": "./node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.37",
-		"e2e": "protractor protractor.docker.conf.js"
+    "pree2e": "webdriver-manager start & sleep 5",
+    "webdriver-update": "./node_modules/protractor/bin/webdriver-manager update --versions.chrome 2.37",
+    "e2e": "protractor protractor.docker.conf.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/tuliobluz/protractor-cucumber-pageobject#readme",
   "dependencies": {
+    "adm-zip": "^0.4.11",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "cucumber": "^4.2.1",
