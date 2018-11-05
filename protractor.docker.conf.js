@@ -4,7 +4,7 @@ feature files and step definitions with protractor.
 **/
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  // capabilities: {
+  capabilities: {
 
   //   //ignoreSynchronization: true,
 
