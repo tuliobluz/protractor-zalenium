@@ -1,4 +1,16 @@
-version: '3'
+version: '2'
 services:
   protractor-e2e:
-    build: .
+    build:
+      .
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub 
+    environment:
+        HUB_HOST: hub
+
+  hub:
+    image: selenium/hub:3.141.0
+    ports:
+      - "4444:4444"

@@ -3,9 +3,10 @@ Basic configuration to run your cucumber
 feature files and step definitions with protractor.
 **/
 exports.config = {
-  capabilities: {
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+  // capabilities: {
 
-    //ignoreSynchronization: true,
+  //   //ignoreSynchronization: true,
 
     browserName: 'chrome',
     /**
@@ -15,12 +16,23 @@ exports.config = {
      */
     chromeOptions: {
       args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768'],
-      binary: '/usr/bin/google-chrome'
+      //binary: '/usr/app/protractor/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37'
     },
-
-    shardTestFiles: true
+    shardTestFiles: true,
   },
-  directConnect: true,
+
+  // multiCapabilities: [
+  //   {
+  //     browserName: 'firefox'
+  //   },
+  //   {
+  //     browserName: 'chrome',
+  //     chromeOptions: {
+  //       args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768'],
+  //       //binary: '/usr/app/protractor/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37'
+  //     },
+  //   }],
+  // directConnect: true,
   /**
    * The timeout in milliseconds for each script run on the browser. This
    * should be longer than the maximum time your application needs to
@@ -98,7 +110,6 @@ exports.config = {
   *    });
   */
   onPrepare: function () {
-    browser.manage().window().maximize(); // maximize the browser before executing the feature files
     const { Given, Then, When, Before } = require('cucumber');
     global.Given = Given;
     global.When = When;
