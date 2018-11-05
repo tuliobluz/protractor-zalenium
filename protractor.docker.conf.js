@@ -4,34 +4,34 @@ feature files and step definitions with protractor.
 **/
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  capabilities: {
+  // capabilities: {
 
   //   //ignoreSynchronization: true,
 
-    browserName: 'chrome',
-    /**
-     * If this is set to be true, specs will be sharded by file (i.e. all
-     * files to be run by this set of capabilities will run in parallel).
-     * Default is false.
-     */
-    chromeOptions: {
-      args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768'],
-      //binary: '/usr/app/protractor/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37'
-    },
-    shardTestFiles: true,
-  },
-
-  // multiCapabilities: [
-  //   {
-  //     browserName: 'firefox'
+  //   browserName: 'chrome',
+  //   /**
+  //    * If this is set to be true, specs will be sharded by file (i.e. all
+  //    * files to be run by this set of capabilities will run in parallel).
+  //    * Default is false.
+  //    */
+  //   chromeOptions: {
+  //     args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768'],
+  //     //binary: '/usr/app/protractor/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37'
   //   },
-  //   {
-  //     browserName: 'chrome',
-  //     chromeOptions: {
-  //       args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768'],
-  //       //binary: '/usr/app/protractor/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37'
-  //     },
-  //   }],
+  //   shardTestFiles: true,
+  // },
+
+  multiCapabilities: [
+    {
+      browserName: 'firefox'
+    },
+    {
+      browserName: 'chrome',
+      chromeOptions: {
+        args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1360,1024'],
+        //binary: '/usr/app/protractor/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37'
+      },
+    }],
   // directConnect: true,
   /**
    * The timeout in milliseconds for each script run on the browser. This

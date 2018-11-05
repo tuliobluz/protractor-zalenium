@@ -1,15 +1,33 @@
 version: '2'
 services:
-  protractor-e2e:
-    build:
-      .
+  # protractor-e2e:
+  #   build:
+  #     .
+  #   volumes:
+  #     - /dev/shm:/dev/shm
+  #   depends_on:
+  #     - hub 
+  #   environment:
+  #       HUB_HOST: hub
+  chrome:
+    image: selenium/node-chrome-debug:3.141.0
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
-      - hub 
+      - hub
     environment:
-        HUB_HOST: hub
+      HUB_HOST: hub
+    ports:
+      - "5900:5900"
 
+  firefox:
+    image: selenium/node-firefox-debug:3.141.0
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
   hub:
     image: selenium/hub:3.141.0
     ports:
