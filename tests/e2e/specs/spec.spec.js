@@ -29,10 +29,11 @@ Then('The user should see Hello with the username success', async function () {
         .to.eventually.equal('Hello Tulio!')
 });
 
-After(function(test){
-    if(test.result.status == 'failed'){
-        // browser.manage().addCookie('zaleniumTestPassed','false');
-        browser.manage().addCookie({ name: 'zaleniumTestPassed', value: 'false'});
-    }
-    //console.log(test.result.status);
+Then('The user should see Hello with the username success 2', async function () {
+    await expect(specPage.getGreetingText())
+        .to.eventually.equal('Hello Tulio!')
+});
+
+After(function (test) {
+    browser.manage().addCookie({ name: 'zaleniumTestPassed', value: test.result.status == 'failed' ? 'false' : 'true' });
 })
