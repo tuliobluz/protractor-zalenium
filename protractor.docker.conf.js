@@ -2,37 +2,20 @@
 Basic configuration to run your cucumber
 feature files and step definitions with protractor.
 **/
+
 exports.config = {
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-  // capabilities: {
-
-  //   //ignoreSynchronization: true,
-
-  //   browserName: 'chrome',
-  //   /**
-  //    * If this is set to be true, specs will be sharded by file (i.e. all
-  //    * files to be run by this set of capabilities will run in parallel).
-  //    * Default is false.
-  //    */
-  //   chromeOptions: {
-  //     args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1024,768'],
-  //     //binary: '/usr/app/protractor/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37'
-  //   },
-  //   shardTestFiles: true,
-  // },
+  seleniumAddress: 'http://user2:1234@localhost:4444/wd/hub',
 
   multiCapabilities: [
     {
-      browserName: 'firefox'
+      browserName: 'firefox',
+      'name': 'Zalenium - Protractor - Firefox',
     },
     {
       browserName: 'chrome',
-      chromeOptions: {
-        args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-extensions', '--disable-dev-shm-usage', '--window-size=1360,1024'],
-        //binary: '/usr/app/protractor/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.37'
-      },
-    }],
-  // directConnect: true,
+      'name': 'Zalenium - Protractor - Chrome',
+    },
+  ],
   /**
    * The timeout in milliseconds for each script run on the browser. This
    * should be longer than the maximum time your application needs to
@@ -110,10 +93,11 @@ exports.config = {
   *    });
   */
   onPrepare: function () {
-    const { Given, Then, When, Before } = require('cucumber');
+    const { Given, Then, When, Before, After } = require('cucumber');
     global.Given = Given;
     global.When = When;
     global.Then = Then;
     global.Before = Before;
+    global.After = After;
   }
 };

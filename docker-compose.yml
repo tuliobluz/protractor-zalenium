@@ -1,34 +1,27 @@
-version: '2'
-services:
-  # protractor-e2e:
-  #   build:
-  #     .
-  #   volumes:
-  #     - /dev/shm:/dev/shm
-  #   depends_on:
-  #     - hub 
-  #   environment:
-  #       HUB_HOST: hub
-  chrome:
-    image: selenium/node-chrome-debug:3.141.0
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - hub
-    environment:
-      HUB_HOST: hub
-    ports:
-      - "5900:5900"
-
-  firefox:
-    image: selenium/node-firefox-debug:3.141.0
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - hub
-    environment:
-      HUB_HOST: hub
-  hub:
-    image: selenium/hub:3.141.0
-    ports:
-      - "4444:4444"
+# Usage:
+    #   docker-compose up --force-recreate
+    version: '2.1'
+    
+    services:
+      #--------------#
+      zalenium:
+        image: "dosel/zalenium"
+        container_name: zalenium
+        hostname: zalenium
+        tty: true
+        volumes:
+          - /Users/tluz/Desktop/videos:/home/seluser/videos
+          - /var/run/docker.sock:/var/run/docker.sock
+          - /Users/tluz/Documents/protractor-jenkins/.htpasswd:/home/seluser/.htpasswd
+        ports:
+          - 4444:4444
+        command: >
+          start --desiredContainers 2
+                --maxDockerSeleniumContainers 8
+                --screenWidth 1360 --screenHeight 1024
+                --timeZone "America/Sao_Paulo"
+                --videoRecordingEnabled true
+                --keepOnlyFailedTests true
+        environment:
+          - HOST_UID
+          - HOST_GID
