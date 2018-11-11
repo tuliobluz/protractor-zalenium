@@ -24,13 +24,10 @@
   },
   "homepage": "https://github.com/tuliobluz/protractor-cucumber-pageobject#readme",
   "dependencies": {
-    "adm-zip": "^0.4.11",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "cucumber": "^4.2.1",
-    "protractor": "5.3.2"
-  },
-  "devDependencies": {
+    "protractor": "5.3.2",
     "protractor-cucumber-framework": "^5.0.0"
   }
 }
