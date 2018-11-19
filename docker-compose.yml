@@ -12,7 +12,7 @@
         volumes:
           - /Users/tluz/Desktop/videos:/home/seluser/videos
           - /var/run/docker.sock:/var/run/docker.sock
-          - /Users/tluz/Documents/protractor-jenkins/.htpasswd:/home/seluser/.htpasswd
+          - /Users/tluz/Documents/protractor-zalenium/.htpasswd:/home/seluser/.htpasswd
         ports:
           - 4444:4444
         command: >
