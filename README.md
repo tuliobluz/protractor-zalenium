@@ -29,3 +29,7 @@ We know how complicated it is to:
 * Provide capabilities to cover all browsers and platforms
 
 That is why we took this approach where docker-selenium nodes are created on demand. Your UI tests in Firefox and Chrome will run faster because they are running on a local grid, on a node created from scratch and disposed after the test completes.
+
+## Post on Medium about Zalenium
+
+I created a post about [Zalenium — Brief Introduction with Protractor](https://medium.com/@tuliobluz/zalenium-brief-introduction-with-protractor-5d9e4f5f85cb)
