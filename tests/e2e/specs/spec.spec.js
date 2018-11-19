@@ -11,7 +11,7 @@ Before(async function () {
     await specPage.init();
 })
 
-Given('The user go to {string}', async function (string) {
+Given('The user goes to {string}', async function (string) {
     await specPage.get(string);
 });
 
